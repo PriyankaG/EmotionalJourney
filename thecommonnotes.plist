@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Life</key>
+	<array>
+		<string> A new beginning</string>
+		<string> Achieved my life goal</string>
+		<string> Won the challenge</string>
+		<string> Huge success</string>
+		<string> Feel energetic</string>
+		<string> Feel awesome</string>
+		<string> Feel a sense of achievement</string>
+		<string> I can do it</string>
+		<string> Am liberated from now</string>
+		<string> It&apos;s the end of my life</string>
+		<string> Didn&apos;t achieve enough</string>
+		<string> Unable to control my anger</string>
+		<string> My friends got ahead of me</string>
+		<string> Am left behind</string>
+		<string> There&apos;s no one to care for me</string>
+		<string> There&apos;s no one to support me</string>
+		<string> Filled with negative thoughts</string>
+	</array>
+	<key> Work</key>
+	<array>
+		<string> Got my first customer</string>
+		<string> Got promoted</string>
+		<string> Got a pay hike</string>
+		<string> Got a huge bonus</string>
+		<string> My hard work paid off</string>
+		<string> My boss acknowledged my good work</string>
+		<string> Someone else took credit for my work</string>
+		<string> My boss rebuked me before everyone</string>
+		<string> Didn&apos;t get a hike</string>
+		<string> Didn&apos;t get promoted</string>
+		<string> My customer blasted me</string>
+	</array>
+	<key> Loved One</key>
+	<array>
+		<string>Found my life partner</string>
+		<string>Proposed her</string>
+		<string>Proposed him</string>
+		<string>Got my 1st hug</string>
+		<string>Got my 1st kiss</string>
+		<string>She loves me too</string>
+		<string>He loves me too</string>
+		<string>She cares so much for me</string>
+		<string>He cares so much for me</string>
+		<string>Broke up</string>
+		<string>Got devastated</string>
+		<string>Had a really bad fight</string>
+		<string>Quarelled</string>
+	</array>
+	<key> Kids</key>
+	<array>
+		<string> Got a bike for my kid</string>
+		<string> My kid passed high school</string>
+	</array>
+	<key> Career</key>
+	<array>
+		<string> Got my dream job</string>
+		<string> Started my own firm</string>
+		<string> Got into one of the world&apos;s best firms</string>
+		<string> Got into a high-paying job</string>
+		<string> Was given a pink slip</string>
+		<string> Failed in the interview</string>
+		<string> Couldn&apos;t prepare for the interview</string>
+	</array>
+	<key> Health</key>
+	<array>
+		<string> Feeling fresh</string>
+		<string> Feeling so energetic</string>
+		<string> Got over my illness</string>
+		<string> Had a sound sleep after a long time</string>
+		<string> Had a doc checkup</string>
+		<string> Couldn&apos;t sleep well</string>
+		<string> Bad dreams</string>
+		<string> My illness is killing me</string>
+		<string> Unbearable pain</string>
+		<string> Had a doc checkup</string>
+	</array>
+	<key>O</key>
+	<array>
+		<string>Octavio</string>
+		<string>Olive</string>
+		<string>Oliver</string>
+		<string>Olivia</string>
+		<string>Omar</string>
+		<string>Omari</string>
+		<string>Omarion</string>
+		<string>Orion</string>
+		<string>Orlando</string>
+		<string>Oscar</string>
+		<string>Osvaldo</string>
+		<string>Oswaldo</string>
+		<string>Owen</string>
+	</array>
+	<key>P</key>
+	<array>
+		<string>Pablo</string>
+		<string>Paige</string>
+		<string>Paisley</string>
+		<string>Paloma</string>
+		<string>Pamela</string>
+		<string>Paola</string>
+		<string>Paris</string>
+		<string>Parker</string>
+		<string>Parker</string>
+		<string>Patience</string>
+		<string>Patricia</string>
+		<string>Patrick</string>
+		<string>Paul</string>
+		<string>Paula</string>
+		<string>Paulina</string>
+		<string>Paxton</string>
+		<string>Payton</string>
+		<string>Payton</string>
+		<string>Pedro</string>
+		<string>Penelope</string>
+		<string>Perla</string>
+		<string>Peter</string>
+		<string>Peyton</string>
+		<string>Peyton</string>
+		<string>Philip</string>
+		<string>Phillip</string>
+		<string>Phoebe</string>
+		<string>Phoenix</string>
+		<string>Phoenix</string>
+		<string>Pierce</string>
+		<string>Piper</string>
+		<string>Porter</string>
+		<string>Pranav</string>
+		<string>Precious</string>
+		<string>Presley</string>
+		<string>Preston</string>
+		<string>Prince</string>
+		<string>Princess</string>
+		<string>Priscilla</string>
+	</array>
+	<key>Q</key>
+	<array>
+		<string>Quentin</string>
+		<string>Quincy</string>
+		<string>Quinn</string>
+		<string>Quinn</string>
+		<string>Quinten</string>
+		<string>Quintin</string>
+		<string>Quinton</string>
+	</array>
+	<key>U</key>
+	<array>
+		<string>Ulises</string>
+		<string>Uriel</string>
+	</array>
+	<key>V</key>
+	<array>
+		<string>Valentin</string>
+		<string>Valentina</string>
+		<string>Valeria</string>
+		<string>Valerie</string>
+		<string>Valery</string>
+		<string>Van</string>
+		<string>Vance</string>
+		<string>Vanessa</string>
+		<string>Vaughn</string>
+		<string>Veronica</string>
+		<string>Vicente</string>
+		<string>Victor</string>
+		<string>Victoria</string>
+		<string>Vince</string>
+		<string>Vincent</string>
+		<string>Vincenzo</string>
+		<string>Violet</string>
+		<string>Virginia</string>
+		<string>Vivian</string>
+		<string>Viviana</string>
+	</array>
+	<key>W</key>
+	<array>
+		<string>Wade</string>
+		<string>Walker</string>
+		<string>Walter</string>
+		<string>Warren</string>
+		<string>Waylon</string>
+		<string>Wayne</string>
+		<string>Wendy</string>
+		<string>Wesley</string>
+		<string>Weston</string>
+		<string>Whitney</string>
+		<string>Will</string>
+		<string>William</string>
+		<string>Willie</string>
+		<string>Willow</string>
+		<string>Wilson</string>
+		<string>Winston</string>
+		<string>Wyatt</string>
+	</array>
+	<key>X</key>
+	<array>
+		<string>Xander</string>
+		<string>Xavier</string>
+		<string>Ximena</string>
+		<string>Xiomara</string>
+		<string>Xzavier</string>
+	</array>
+	<key>Y</key>
+	<array>
+		<string>Yadira</string>
+		<string>Yael</string>
+		<string>Yahir</string>
+		<string>Yair</string>
+		<string>Yamilet</string>
+		<string>Yandel</string>
+		<string>Yareli</string>
+		<string>Yaretzi</string>
+		<string>Yaritza</string>
+		<string>Yasmin</string>
+		<string>Yasmine</string>
+		<string>Yazmin</string>
+		<string>Yesenia</string>
+		<string>Yosef</string>
+		<string>Yoselin</string>
+		<string>Yuliana</string>
+		<string>Yurem</string>
+		<string>Yuridia</string>
+		<string>Yusuf</string>
+	</array>
+	<key>Z</key>
+	<array>
+		<string>Zachariah</string>
+		<string>Zachary</string>
+		<string>Zachery</string>
+		<string>Zack</string>
+		<string>Zackary</string>
+		<string>Zackery</string>
+		<string>Zain</string>
+		<string>Zaire</string>
+		<string>Zander</string>
+		<string>Zane</string>
+		<string>Zaniya</string>
+		<string>Zaniyah</string>
+		<string>Zara</string>
+		<string>Zaria</string>
+		<string>Zariah</string>
+		<string>Zavier</string>
+		<string>Zayden</string>
+		<string>Zayne</string>
+		<string>Zechariah</string>
+		<string>Zion</string>
+		<string>Zion</string>
+		<string>Zoe</string>
+		<string>Zoey</string>
+		<string>Zoie</string>
+	</array>
+</dict>
+</plist>

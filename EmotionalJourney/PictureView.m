@@ -10,6 +10,19 @@
 
 @implementation PictureView
 
+@synthesize imageView;
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    if ([touch view] == self.imageView ) {
+        NSLog(@"PictureView.imageView tapped");
+        [self.view removeFromSuperview];
+    }
+} 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

@@ -14,7 +14,10 @@
 #define kNoteImageTag   3
 #define kNameValueTag   4
 #define kColorValueTag  5
-
+#define kNoteSleptWell      @"Slept well"
+#define kNoteSleptUnwell    @"Didn't sleep well"
+#define kSleptWell                  1
+#define kDidntSleepWell             0
 
 @implementation EmotionNoteTableCell
 
@@ -22,12 +25,17 @@
 @synthesize noteEmotion;
 @synthesize noteText;
 @synthesize noteImage;
+@synthesize notePersonPic;
 @synthesize noteShare;
 @synthesize noteEmotionView;
 @synthesize noteImageView;
+@synthesize notePersonPicView;
 @synthesize noteTextLabel;
 @synthesize viewController;
 @synthesize picView;
+@synthesize noteSleep;
+@synthesize labelSleepNote;
+@synthesize imageOriginal;
 
 
 /*
@@ -75,11 +83,8 @@
 }
       
 
-
-
-
 -(void)setNoteEmotion:(UIImage *)emotion {
-    NSLog(@"setNoteEmotion");
+    NSLog(@"EmotionNoteTableCell: setNoteEmotion");
     noteEmotion = [emotion copy];
     //noteEmotionView = (UIImageView *)[self.contentView viewWithTag:kNoteEmotionTag];
     noteEmotionView.image = noteEmotion;
@@ -89,7 +94,7 @@
 
 
 - (void)setNoteText:(NSString *)text {
-    NSLog(@"setNoteText");
+    NSLog(@"EmotionNoteTableCell: setNoteText");
     if (![text isEqualToString:noteText]) {
         noteText = [text copy];
         //noteTextLabel = (UILabel *)[self.contentView viewWithTag:kNoteTextTag];
@@ -98,9 +103,21 @@
 }
 
 
+- (void)setNoteSleep:(int)slept {
+    
+    NSLog(@"EmotionNoteTableCell: setNoteSleep");
+    noteSleep = slept;
+    if (noteSleep == kSleptWell) {
+        labelSleepNote.text = kNoteSleptWell;
+        
+    } else {
+        labelSleepNote.text = kNoteSleptUnwell;
+    }
+}
+
 
 - (void)setNoteImage:(UIImage *)image {
-    NSLog(@"setNoteImage");
+    NSLog(@"EmotionNoteTableCell: setNoteImage");
     noteImage = [image copy];
     //noteImageView = (UIImageView *)[self.contentView viewWithTag:kNoteImageTag];
     noteImageView.image = noteImage;
@@ -108,20 +125,39 @@
 }
 
 
+- (void)setNotePersonPic:(UIImage *)image {
+    NSLog(@"EmotionNoteTableCell: setNotePersonPic");
+    notePersonPic = [image copy];
+    //noteImageView = (UIImageView *)[self.contentView viewWithTag:kNoteImageTag];
+    notePersonPicView.image = notePersonPic;
+    notePersonPicView.contentMode = UIViewContentModeScaleAspectFill;
+}
 
 -(void)setFirstViewController:(com_FirstViewController *)controller {
     viewController = [[com_FirstViewController alloc] init];
     viewController = controller;
-    NSLog(@"Done setting the FirstViewController instance in the cell");
+    NSLog(@"EmotionNoteTableCell: Done setting the FirstViewController instance in the cell");
 }
 
 
 
 -(IBAction)showMailComposer:(id)sender {
-    NSLog(@"showMailComposer triggered. Calling showEmailComposer in FirstViewController");
+    NSLog(@"EmotionNoteTableCell: showMailComposer triggered. Calling showEmailComposer in FirstViewController");
     [self.viewController showEmailComposerWithText:noteText
-                                       withEmotion:noteEmotion
+                                       withEmoticon:noteEmotion
                                        withPicture:noteImage];
 }
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    if ( [touch view] == self.noteImageView ) {
+        NSLog(@"EmotionNoteTableCell.noteImageView tapped");
+        NSLog(@"touchesBegan: img size:%f", self.imageOriginal.size.width);
+        [self.viewController displayFullPic:self.imageOriginal];
+    }
+} 
+
               
 @end

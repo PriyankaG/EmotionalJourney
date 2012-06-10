@@ -10,59 +10,87 @@
 #import "DatabaseOperations.h"
 #import "EmotionsHistoryView.h"
 #import "EmotionsHistoryView.h"
-#import "GraphView.h"
+
+// #define kFromDateButtonTitle @"I've chosen the 'FROM' date"
+#define kChartTypePie               0
+#define kChartTypeLine              1
+#define kChartTypeBar               2
+#define kChartTypePieCompare        3
+
+#define kEmptyString                @""
+#define kTableName                  @"emotionrrys"
+#define kButtonPieEnabled           @"Button_PieChart_Red.png"
+#define kButtonPieDisabled          @"Button_PieChart_Grey.png"
+#define kButtonLineEnabled          @"Button_LineChart_Red.png"
+#define kButtonLineDisabled         @"Button_LineChart_Grey.png"
+#define kButtonFromDateEnabled      @"Button_FromDate_Red.png"
+#define kButtonFromDateDisabled     @"Button_FromDate_Grey.png"
+#define kButtonToDateEnabled        @"Button_ToDate_Red.png"
+#define kButtonToDateDisabled       @"Button_ToDate_Grey.png"
+#define kEmptyString                @""
+#define kLabelSecondPeriod          @"Enter the second period, for comparison"
+
 
 @implementation com_SecondViewController
 
 @synthesize labelInputPrompt;
 @synthesize labelFromDate;
 @synthesize labelToDate;
-@synthesize buttonDateChosen;
+@synthesize buttonFromDateChosen;
+@synthesize buttonToDateChosen;
+@synthesize buttonChartLine;
+@synthesize buttonChartPie;
+@synthesize buttonChartPieCompare;
+@synthesize buttonChartCompareNow;
 @synthesize datePicker;
 @synthesize historyFromDate;
 @synthesize historyToDate;
+@synthesize historyFromDate2;
+@synthesize historyToDate2;
 @synthesize whichView;
 @synthesize controllers;
+@synthesize graphView;
+
 
 static CGFloat const FONTSIZE = 14.0;
 DatabaseOperations *dbOps;
 EmotionsHistoryView *historyView;
 NSArray *moodHistory;
-GraphView *graphView;
 
 
 /**
  * This method gets automatically triggered when the 'From' date is chosen
  */
 -(IBAction) fromDateChosen: (id)sender {
+            
+    NSLog(@"User has chosen the 'From' date");
+    [self.buttonFromDateChosen setEnabled:NO];
     
-    NSString *buttonTitle = @"I've chosen the 'FROM' date";
+    // Get the chosen date value
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    NSDate *fromDate = [datePicker date];
+    NSString *dateOrig = [dateFormatter stringFromDate:fromDate];
+    NSLog(@"date original: %@", dateOrig);
+    historyFromDate = fromDate;
+    self.labelFromDate.hidden   = YES;
     
-    if ([[buttonDateChosen currentTitle] isEqualToString:buttonTitle]) { 
-        
-        NSLog(@"User has chosen the 'From' date");
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-        
-        // Get the chosen date value
-        NSDate *fromDate = [datePicker date];
-        NSString *dateOrig = [dateFormatter stringFromDate:fromDate];
-        NSLog(@"date original: %@", dateOrig);
-        historyFromDate = fromDate;
-        
-        //[self setDates:fromDate withType:0];
-        
-        // Set the 'to' date label to reflect the user's choice
-        labelFromDate.text = [dateFormatter stringFromDate:historyFromDate];
-        NSLog(@"'From' Date Chosen:%@", historyFromDate);
-        //[dateFormatter stringFromDate:[datePicker date]]);
-        
-        // Change the label at the top to ask the user to choose the 'To' date
-        [labelInputPrompt setText:@"Choose the 'To' Date now"];
-        
-    }
+    [UIView transitionWithView:self.labelFromDate
+                      duration:1.0
+                       options:UIViewAnimationOptionCurveLinear
+                    animations:^{ 
+                        
+                        // Set the 'from' date label to reflect the user's choice
+                        labelFromDate.text = [dateFormatter stringFromDate:historyFromDate];
+                        self.labelFromDate.hidden   = NO;
+                    }  
+                    completion:^(BOOL finished){
+                        // Change the label at the top to ask the user to choose the 'To' date
+                        [labelInputPrompt setText:@"Choose the 'To' Date now"];
+    }];
+
+    NSLog(@"'From' Date Chosen:%@", historyFromDate);
 }
 
 
@@ -71,11 +99,9 @@ GraphView *graphView;
  * This method gets automatically triggered when the 'To' date is chosen
  */
 -(IBAction) toDateChosen:(id)sender {
-    
-    NSString *buttonTitle = @"I've chosen the 'FROM' date";
-    
-    if (![[buttonDateChosen currentTitle] isEqualToString:buttonTitle]) { 
         
+        [self.buttonToDateChosen setEnabled:NO];
+    
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
@@ -87,12 +113,15 @@ GraphView *graphView;
         
         // TODO : build on this
         whichView = @"2";
-        
-        NSArray *moodHistory = [self fetchTheMoodHistoryWithFromDate:historyFromDate withToDate:historyToDate];
-        //[historyView setMoodHistoryData:moodHistory];
-        [graphView setMoodHistoryData:moodHistory];
-        [self presentModalViewController:graphView animated:YES];
 
+        // Set the 'to' date label to reflect the user's choice
+        labelToDate.text = [dateFormatter stringFromDate:historyToDate];
+    [   labelInputPrompt setText:kEmptyString];
+
+        self.buttonChartLine.enabled        = YES;
+        self.buttonChartPie.enabled         = YES;
+        self.buttonChartPieCompare.enabled  = YES;
+    
         //[self.view addSubview:graphView];
         
         
@@ -129,11 +158,6 @@ GraphView *graphView;
          
         //[self.navigationController popViewControllerAnimated:YES];
 
-    }
-    
-    // Change the button's text
-    [buttonDateChosen setTitle:@"Now show me my Mood History!"
-                      forState:UIControlStateNormal];
     
     //alpha fading
     //    modalController.view.alpha = 0.0;
@@ -147,11 +171,15 @@ GraphView *graphView;
 /**
  * This method gets automatically triggered when the user is in the process of choosing the date
  */
+/*
 -(IBAction) dateBeingChosen:(id)sender {
     
-    NSString *buttonTitle = @"I've chosen the 'FROM' date";
-    
-    if ([[buttonDateChosen currentTitle] isEqualToString:buttonTitle]) { 
+    //NSString *buttonTitle = kFromDateButtonTitle;
+    //if ([[buttonDateChosen currentTitle] isEqualToString:buttonTitle]) { 
+      
+    if ( historyFromDate == nil ) {
+        
+        [self.buttonFromDateChosen setEnabled:YES];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -159,8 +187,11 @@ GraphView *graphView;
         
         // Set the 'from' date label to reflect the user's choice
         labelFromDate.text = [dateFormatter stringFromDate:[datePicker date]];
+     
         
     } else {
+        
+        [self.buttonToDateChosen setEnabled:YES];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -171,21 +202,142 @@ GraphView *graphView;
         
     }
 }
+*/
+
+
+-(IBAction)buttonChartLinePressed:(id)sender {
+
+    [self displayChart:kChartTypeLine];
+}
 
 
 
-/**
- * Fetches the mood history between the given dates
- */
--(NSArray *) fetchTheMoodHistoryWithFromDate:(NSDate *)fromDate withToDate:(NSDate *)toDate {
+-(IBAction)buttonChartPiePressed:(id)sender {
     
-    NSLog(@"fetchTheMoodHistory: begin");
-    NSLog(@"Calling fetchTheMoodHistory for the period %@ to %@", historyFromDate, historyToDate);
-    NSArray *history = [dbOps getDataBetweenDates:@"Emotionssys" 
-                                        withStartDate:fromDate 
-                                        withEndDate:toDate];
-    NSLog(@"fetchTheMoodHistory: end");
-    return history;
+    [self displayChart:kChartTypePie];
+}
+
+
+-(IBAction) buttonChartPieComparePressed:(id)sender {
+
+    [self displaySecondPeriodForComparison];
+}
+
+
+
+-(void) displayChart: (int) chartType {
+
+    NSLog(@"displayChart: begin for charttype %d", chartType);
+    
+    if (chartType == kChartTypePie) {
+        NSArray *moodHistory = 
+                    [dbOps getDataBetweenDates:kTableName 
+                                        withStartDate:historyFromDate 
+                                          withEndDate:historyToDate];
+        [self.graphView setMoodHistoryData:moodHistory];
+        
+        
+    } else if (chartType == kChartTypeLine) {
+        NSArray *moodSleepHistory = 
+          [dbOps getMoodSleepBetweenDates:kTableName withStartDate:historyFromDate withEndDate:historyToDate];
+        NSLog(@"displayChart: got the mood history and sleep data");
+        [self.graphView setMoodSleepHistory:moodSleepHistory];
+        
+        
+    } else if (chartType == kChartTypePieCompare) {
+        
+        NSLog(@"displayChart: kChartTypePieCompare");
+        NSString *dateStrFromCompare   =   self.labelFromDate.text;
+        NSString *dateStrToCompare     =   self.labelToDate.text;
+        NSLog(@"Label from date: %@", dateStrFromCompare);
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        NSDate *dateFromCompare = [dateFormatter dateFromString:dateStrFromCompare];
+        NSDate *dateToCompare   = [dateFormatter dateFromString:dateStrToCompare];
+        [self.graphView setHistoryFromDateForComparison:dateFromCompare];
+        [self.graphView setHistoryToDateForComparison:dateToCompare];
+        historyFromDate = historyFromDate2;
+        historyToDate   = historyToDate2;
+        
+        // Set the moodHistory for the two charts
+        NSArray *moodHistory1 = [dbOps getDataBetweenDates:kTableName 
+                                     withStartDate:historyFromDate 
+                                       withEndDate:historyToDate];
+        [graphView setMoodHistoryData:moodHistory1];
+        NSLog(@"displayChart: moodhistorydata 1 count: %d", [moodHistory1 count]);
+        moodHistory1 = nil;
+        NSArray *moodHistory2 = [dbOps getDataBetweenDates:kTableName 
+                                    withStartDate:dateFromCompare 
+                                      withEndDate:dateToCompare]; 
+        [graphView setMoodHistoryDataForChartTwo:moodHistory2];
+        NSLog(@"displayChart: moodhistorydata 2 count: %d", [moodHistory2 count]);
+        moodHistory2 = nil;
+        dateFromCompare = nil;
+        dateToCompare   = nil;
+        [self reinitializeInterfaceAfterComparison];
+    }
+    
+    NSLog(@"from: %@", historyFromDate);
+    NSLog(@"to  : %@", historyToDate);
+    [self.graphView setGraphDateFrom:historyFromDate];
+    [self.graphView setGraphDateTo:historyToDate];
+    [self.graphView setChartType:chartType];
+    
+    NSLog(@"displayChart: setChartType:%d, setMoodHistoryData", chartType);
+    [self presentModalViewController:self.graphView animated:YES];  
+    NSLog(@"displayChart: end");
+}
+
+
+
+-(void) displaySecondPeriodForComparison {
+
+    // Save the chosen dates for period 1
+    historyFromDate2                    = historyFromDate;
+    historyToDate2                      = historyToDate;
+    
+    self.datePicker.hidden              = YES;
+    self.labelFromDate.hidden           = YES;
+    self.labelToDate.hidden             = YES;
+    self.buttonChartLine.hidden         = YES;
+    self.buttonChartPie.hidden          = YES;
+    self.buttonChartPieCompare.hidden   = YES;
+    self.buttonFromDateChosen.enabled   = YES;
+    self.buttonToDateChosen.enabled     = YES;
+    self.labelFromDate.text             = kEmptyString;
+    self.labelToDate.text               = kEmptyString;
+    self.labelInputPrompt.text          = kLabelSecondPeriod;
+  
+    [UIView transitionWithView:self.view
+            duration:1.0
+            options:UIViewAnimationOptionTransitionCurlUp
+            animations:^{ 
+            
+                self.datePicker.hidden              = NO;
+                self.labelFromDate.hidden           = NO;
+                self.labelToDate.hidden             = NO;
+                self.buttonChartCompareNow.hidden   = NO;
+            }  
+            completion:Nil];
+     
+}
+
+
+-(IBAction) buttonChartCompareNowPressed:(id)sender {
+    [self displayChart:kChartTypePieCompare];
+}
+
+
+
+-(void) reinitializeInterfaceAfterComparison {
+    
+    self.buttonChartCompareNow.hidden   = YES;
+    self.buttonChartLine.hidden         = NO;
+    self.buttonChartPie.hidden          = NO;
+    self.buttonChartPieCompare.hidden   = NO;
+    self.labelFromDate.text             = kEmptyString;
+    self.labelToDate.text               = kEmptyString;
 }
 
 
@@ -217,15 +369,17 @@ GraphView *graphView;
     
     self.title = @"My Mood history";
 
-    graphView = [[GraphView alloc] init];
+    self.graphView = [[GraphView alloc] init];
     
     dbOps = [DatabaseOperations dbOpsSingleton];
 
-    [dbOps createTableNamed:@"Emotionssys"
-                 withField1:@"time" 
-                 withField2:@"emotion"
+    [dbOps createTableNamed:kTableName
+                 withField1:@"user"
+                 withField2:@"time"
                  withField3:@"text"
-                 withField4:@"picture"];
+                 withField4:@"emoticon"
+                 withField5:@"picture"
+                 withField6:@"sleep"];
     
     //historyView = [[EmotionsHistoryView alloc] init];
     // historyView.view.self.bounds = self.view.bounds;
@@ -240,7 +394,44 @@ GraphView *graphView;
     [datePicker setMinimumDate:minDate];
     NSDate *maxDate = [[NSDate alloc] init];
     [datePicker setMaximumDate:maxDate];
+    CGRect rect = self.datePicker.frame;
+    rect.origin = CGPointMake(5.0, 25.0);
+    self.datePicker.frame = rect;
+    datePicker.transform = CGAffineTransformMakeScale(0.7, 0.5);
+    
+    UIImage *pieEnabled     = [UIImage imageNamed:kButtonPieEnabled];
+    UIImage *pieDisabled    = [UIImage imageNamed:kButtonPieDisabled];
+    [self.buttonChartPie setImage:pieEnabled  forState:UIControlStateNormal];
+    [self.buttonChartPie setImage:pieDisabled forState:UIControlStateDisabled];
+    
+    UIImage *lineEnabled = [UIImage imageNamed:kButtonLineEnabled];
+    UIImage *lineDisabled = [UIImage imageNamed:kButtonLineDisabled];
+    [self.buttonChartLine setImage:lineEnabled  forState:UIControlStateNormal];
+    [self.buttonChartLine setImage:lineDisabled forState:UIControlStateDisabled];
+    
+    pieEnabled = nil; pieDisabled = nil;
+    lineEnabled = nil; lineDisabled = nil;
+    
+    UIImage *buttonFromDateEnabled  = [UIImage imageNamed:kButtonFromDateEnabled];
+    UIImage *buttonFromDateDisabled = [UIImage imageNamed:kButtonFromDateDisabled];
+    UIImage *buttonToDateEnabled    = [UIImage imageNamed:kButtonToDateEnabled];
+    UIImage *buttonToDateDisabled   = [UIImage imageNamed:kButtonToDateDisabled];
+    [self.buttonFromDateChosen setImage:buttonFromDateEnabled forState:UIControlStateNormal];
+    [self.buttonFromDateChosen setImage:buttonFromDateDisabled forState:UIControlStateDisabled];
+    [self.buttonToDateChosen setImage:buttonToDateEnabled forState:UIControlStateNormal];
+    [self.buttonToDateChosen setImage:buttonToDateDisabled forState:UIControlStateDisabled];
+    
+    self.buttonChartLine.hidden         = NO;
+    self.buttonChartPie.hidden          = NO;
+    self.buttonChartPieCompare.hidden   = NO;
+    self.buttonChartPie.enabled         = NO;
+    self.buttonChartLine.enabled        = NO;
+    self.buttonChartPieCompare.enabled  = NO;
+    self.buttonToDateChosen.enabled     = YES;
+    self.buttonFromDateChosen.enabled   = YES;
+    self.buttonChartCompareNow.hidden   = YES;
 }
+
 
 - (void)viewDidUnload
 {
@@ -253,6 +444,9 @@ GraphView *graphView;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.buttonFromDateChosen  setEnabled:YES];
+    [self.buttonToDateChosen    setEnabled:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated

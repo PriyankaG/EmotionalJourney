@@ -15,54 +15,23 @@
 #define kNameValueTag   4
 #define kColorValueTag  5
 
+#define kNoteSleptWell      @"Slept well"
+#define kNoteSleptUnwell    @"Didn't sleep well"
+#define kSleptWell                  1
+#define kDidntSleepWell             0
 
 @implementation TextNoteTableCell
 
+@synthesize picView;
 @synthesize buttonShare;
 @synthesize noteEmotion;
 @synthesize noteText;
+@synthesize noteSleep;
 @synthesize noteShare;
 @synthesize noteEmotionView;
 @synthesize noteTextLabel;
 @synthesize viewController;
-@synthesize picView;
-
-
-/*
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        // For displaying the Emoticon
-        // CGRect -> x, y, width, height
-        CGRect noteEmotionRect = CGRectMake(0, 5, 27, 13);
-        noteEmotionView = [[UIImageView alloc] initWithFrame:noteEmotionRect];
-        noteEmotionView.tag = kNoteEmotionTag;
-        [self.contentView addSubview:noteEmotionView];
-        
-        // For displaying the button that enables sharing
-        CGRect noteButtonRect = CGRectMake(0, 26, 70, 15);
-        buttonShare = [[UIButton alloc] initWithFrame:noteButtonRect];
-        //buttonShare.titleLabel.text = @"Share";
-        buttonShare.alpha=1;
-        [self.contentView addSubview:buttonShare];
-        
-        // For displaying the text
-        CGRect noteTextRect = CGRectMake(80, 5, 200, 15); 
-        noteTextLabel = [[UILabel alloc] initWithFrame:noteTextRect];
-        noteTextLabel.tag = kNoteTextTag;
-        [self.contentView addSubview:noteTextLabel];
-        
-        // For displaying the image, if any, chosen by the user
-        CGRect noteImageRect = CGRectMake(80, 25, 200, 15); 
-        noteImageView = [[UIImageView alloc] initWithFrame:noteImageRect];
-        noteImageView.tag = kNoteImageTag;
-        [self.contentView addSubview:noteImageView];
-    }
-    return self;
-}
-*/
+@synthesize labelSleepNote;
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -71,13 +40,10 @@
 
     // Configure the view for the selected state
 }
-      
-
-
-
+    
 
 -(void)setNoteEmotion:(UIImage *)emotion {
-    NSLog(@"setNoteEmotion");
+    NSLog(@"TextNoteTableCell: setNoteEmotion");
     noteEmotion = [emotion copy];
     //noteEmotionView = (UIImageView *)[self.contentView viewWithTag:kNoteEmotionTag];
     noteEmotionView.image = noteEmotion;
@@ -85,13 +51,25 @@
 }
 
 
-
 - (void)setNoteText:(NSString *)text {
-    NSLog(@"setNoteText");
+    NSLog(@"TextNoteTableCell: setNoteText");
     if (![text isEqualToString:noteText]) {
         noteText = [text copy];
         //noteTextLabel = (UILabel *)[self.contentView viewWithTag:kNoteTextTag];
         noteTextLabel.text = noteText; 
+    }
+}
+
+
+- (void)setNoteSleep:(int)slept {
+    
+    NSLog(@"TextNoteTableCell: setNoteSleep");
+    noteSleep = slept;
+    if (noteSleep == kSleptWell) {
+        labelSleepNote.text = kNoteSleptWell;
+        
+    } else {
+        labelSleepNote.text = kNoteSleptUnwell;
     }
 }
 
@@ -103,11 +81,10 @@
 }
 
 
-
 -(IBAction)showMailComposer:(id)sender {
     NSLog(@"showMailComposer triggered. Calling showEmailComposer in FirstViewController");
     [self.viewController showEmailComposerWithText:noteText
-                                       withEmotion:noteEmotion
+                                       withEmoticon:noteEmotion
                                        withPicture:nil];
 }
               

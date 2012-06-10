@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CPTLayer.h"
 
-@interface CPTImageLayer : NSObject
+
+@interface CPTImageLayer : CPTLayer {
+    
+    UIImage *_image;
+    
+}
+
+-(id)initWithImage:(UIImage *)image;
 
 @end

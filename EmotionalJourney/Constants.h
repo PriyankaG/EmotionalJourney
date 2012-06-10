@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Constants : NSObject {
-    int EMOTION_OKAY;
-    int EMOTION_HAPPY;
-}
+@interface Constants : NSObject
+
+//extern const NSString *kTableName        @"emotionsssys"
+
 
 @end

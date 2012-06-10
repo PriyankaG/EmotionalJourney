@@ -23,8 +23,11 @@
               withField1:(NSString *) field1
               withField2:(NSString *) field2
               withField3:(NSString *) field3
-              withField4:(NSString *) field4;
-    
+              withField4:(NSString *) field4
+              withField5:(NSString *) field5
+              withField6:(NSString *) field6;
+
+
 // Method to fetch the database that's present in the device
 -(NSString *) filePath; 
 
@@ -34,14 +37,25 @@
 -(NSMutableArray *) getAllRowsFromTableNamed: (NSString *) tableName;
 
 -(void) insertRecordIntoTableNamed: (NSString *) tableName
+
                         withField1: (NSString *) field1
-                       field1Value: (int) field1Value
+                       field1Value: (NSString *) field1Value
+
                         withField2: (NSString *) field2
-                       field2Value:(int) field2Value
+                       field2Value: (int)        field2Value
+
                         withField3: (NSString *) field3
-                       field3Value:(NSString *) field3Value
+                       field3Value: (NSString *) field3Value
+
                         withField4: (NSString *) field4
-                       field4Value:(UIImage *) field4Value;
+                       field4Value: (int)        field4Value
+
+                        withField5: (NSString *) field5
+                       field5Value: (NSString *)  field5Value
+
+                        withField6: (NSString *) field6
+                       field6Value: (int)        field6Value;
+
 
 // Method to close the database
 -(int) closeDB;
@@ -49,14 +63,20 @@
 // Keeps a count of the emoticon types' occurrence-frequency
 -(void) countEmoticons: (int) field2;
 
--(void) addToArrayField1: (int) field1
-                  Field2: (int) field2
-                  Field3: (int) field3
-                  Field4: (UIImage *) field4;
+-(void) addToArrayField1: (NSString *)  field1
+                  Field2: (int)         field2
+                  Field3: (NSString *)  field3
+                  Field4: (int)         field4
+                  Field5: (NSString *)   field5
+                  Field6: (int)         field6;
 
 
 -(NSArray *) getDataBetweenDates: (NSString *) tableName 
                           withStartDate: (NSDate *) dateStart
                             withEndDate: (NSDate *) dateEnd;
+
+-(NSArray *) getMoodSleepBetweenDates: (NSString *) tableName 
+                        withStartDate: (NSDate *) dateStart
+                          withEndDate: (NSDate *) dateEnd;
 
 @end

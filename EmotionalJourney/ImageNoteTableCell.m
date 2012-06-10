@@ -14,55 +14,24 @@
 #define kNoteImageTag   3
 #define kNameValueTag   4
 #define kColorValueTag  5
-
+#define kNoteSleptWell      @"Slept well"
+#define kNoteSleptUnwell    @"Didn't sleep well"
+#define kSleptWell                  1
+#define kDidntSleepWell             0
 
 @implementation ImageNoteTableCell
 
 @synthesize buttonShare;
-@synthesize noteEmotion;
+@synthesize noteEmoticon;
 @synthesize noteImage;
+@synthesize imageOriginal;
 @synthesize noteShare;
-@synthesize noteEmotionView;
+@synthesize noteEmoticonView;
 @synthesize noteImageView;
 @synthesize viewController;
 @synthesize picView;
-
-
-/*
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        // For displaying the Emoticon
-        // CGRect -> x, y, width, height
-        CGRect noteEmotionRect = CGRectMake(0, 5, 27, 13);
-        noteEmotionView = [[UIImageView alloc] initWithFrame:noteEmotionRect];
-        noteEmotionView.tag = kNoteEmotionTag;
-        [self.contentView addSubview:noteEmotionView];
-        
-        // For displaying the button that enables sharing
-        CGRect noteButtonRect = CGRectMake(0, 26, 70, 15);
-        buttonShare = [[UIButton alloc] initWithFrame:noteButtonRect];
-        //buttonShare.titleLabel.text = @"Share";
-        buttonShare.alpha=1;
-        [self.contentView addSubview:buttonShare];
-        
-        // For displaying the text
-        CGRect noteTextRect = CGRectMake(80, 5, 200, 15); 
-        noteTextLabel = [[UILabel alloc] initWithFrame:noteTextRect];
-        noteTextLabel.tag = kNoteTextTag;
-        [self.contentView addSubview:noteTextLabel];
-        
-        // For displaying the image, if any, chosen by the user
-        CGRect noteImageRect = CGRectMake(80, 25, 200, 15); 
-        noteImageView = [[UIImageView alloc] initWithFrame:noteImageRect];
-        noteImageView.tag = kNoteImageTag;
-        [self.contentView addSubview:noteImageView];
-    }
-    return self;
-}
-*/
+@synthesize labelSleepNote;
+@synthesize noteSleep;
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -74,18 +43,18 @@
       
 
 
--(void)setNoteEmotion:(UIImage *)emotion {
-    NSLog(@"setNoteEmotion");
-    noteEmotion = [emotion copy];
+-(void)setNoteEmoticon:(UIImage *)emoticon {
+    NSLog(@"ImageNoteTableCell: setNoteEmotion");
+    noteEmoticon = [emoticon copy];
     //noteEmotionView = (UIImageView *)[self.contentView viewWithTag:kNoteEmotionTag];
-    noteEmotionView.image = noteEmotion;
-    noteEmotionView.contentMode = UIViewContentModeScaleAspectFill;
+    noteEmoticonView.image = noteEmoticon;
+    noteEmoticonView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 
 
 - (void)setNoteImage:(UIImage *)image {
-    NSLog(@"setNoteImage");
+    NSLog(@"ImageNoteTableCell: setNoteImage");
     noteImage = [image copy];
     //noteImageView = (UIImageView *)[self.contentView viewWithTag:kNoteImageTag];
     noteImageView.image = noteImage;
@@ -93,20 +62,43 @@
 }
 
 
+- (void)setNoteSleep:(int)slept {
+    
+    NSLog(@"ImageNoteTableCell: setNoteSleep");
+    noteSleep = slept;
+    if (noteSleep == kSleptWell) {
+        labelSleepNote.text = kNoteSleptWell;
+        
+    } else {
+        labelSleepNote.text = kNoteSleptUnwell;
+    }
+}
+
 
 -(void)setFirstViewController:(com_FirstViewController *)controller {
     viewController = [[com_FirstViewController alloc] init];
     viewController = controller;
-    NSLog(@"Done setting the FirstViewController instance in the cell");
+    NSLog(@"ImageNoteTableCell: Done setting the FirstViewController instance in the cell");
 }
 
 
 
 -(IBAction)showMailComposer:(id)sender {
-    NSLog(@"showMailComposer triggered. Calling showEmailComposer in FirstViewController");
+    NSLog(@"ImageNoteTableCell: showMailComposer triggered. Calling showEmailComposer in FirstViewController");
     [self.viewController showEmailComposerWithText:nil
-                                       withEmotion:noteEmotion
+                                       withEmoticon:noteEmoticon
                                        withPicture:noteImage];
 }
-              
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    if ( [touch view] == self.noteImageView ) {
+        NSLog(@"ImageNoteTableCell.noteImageView tapped");
+        NSLog(@"touchesBegan: img size:%f", self.imageOriginal.size.width);
+        [self.viewController displayFullPic:self.imageOriginal];
+    }
+} 
+
 @end

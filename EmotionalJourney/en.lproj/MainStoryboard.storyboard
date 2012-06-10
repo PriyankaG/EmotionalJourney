@@ -13,56 +13,18 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backdrop.png" id="Yoa-iv-0lm">
-                                <rect key="frame" x="0.0" y="43" width="320" height="135"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="aBh-7S-9eC">
-                                <rect key="frame" x="204" y="43" width="116" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4ch-1S-PfM">
-                                        <rect key="frame" x="15" y="31" width="86" height="71"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <state key="normal" image="Button_TextPencil.png">
-                                            <color key="titleColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="9UB-n3-7FQ"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="OVF-Ad-pdv">
-                                        <rect key="frame" x="7" y="6" width="27" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="9AK-or-v3R">
-                                        <rect key="frame" x="51" y="68" width="59" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="dyr-Rr-HEI">
-                                        <rect key="frame" x="7" y="40" width="103" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Note.png" id="Epx-PJ-k2m">
-                                        <rect key="frame" x="-59" y="0.0" width="175" height="133"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                            <navigationBar contentMode="scaleToFill" id="K8b-Xt-Cgw" customClass="CustomNavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Self Aware" id="rZj-sJ-YeJ"/>
+                                </items>
+                            </navigationBar>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fkE-Nj-pra">
-                                <rect key="frame" x="0.0" y="177" width="320" height="234"/>
+                                <rect key="frame" x="0.0" y="175" width="320" height="234"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="C11-OL-Rlx">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -72,6 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -79,42 +42,77 @@
                                     <outlet property="delegate" destination="2" id="Gaz-C1-Ke7"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" id="K8b-Xt-Cgw" customClass="CustomNavBar">
-                                <rect key="frame" x="0.0" y="-1" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="My Emotions' Journal" id="rZj-sJ-YeJ">
-                                        <barButtonItem key="rightBarButtonItem" image="Button_History.png" style="plain" id="hCx-eY-9KE">
-                                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="history:" destination="2" id="sjh-1h-QiO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <connections>
-                                            <outlet property="rightBarButtonItem" destination="hCx-eY-9KE" id="kXh-7t-TDc"/>
-                                        </connections>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How do you feel now?" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="lIz-cs-d95">
-                                <rect key="frame" x="6" y="136" width="147" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="textBeingEntered:" destination="2" eventType="editingChanged" id="fH4-ZU-GOh"/>
-                                    <action selector="textFieldEditingDone:" destination="2" eventType="editingDidEndOnExit" id="K7t-X4-0Qr"/>
-                                </connections>
-                            </textField>
-                            <view alpha="0.84999999999999998" contentMode="scaleToFill" id="zeS-8W-YbP">
-                                <rect key="frame" x="0.0" y="43" width="61" height="368"/>
+                            <view contentMode="scaleToFill" id="aBh-7S-9eC" customClass="NoteEntryView">
+                                <rect key="frame" x="0.0" y="44" width="320" height="321"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ri2-d6-eRg">
-                                        <rect key="frame" x="8" y="11" width="44" height="35"/>
+                                    <imageView contentMode="scaleToFill" image="Background_White_HorizontalWithClip_320-350.png" id="Epx-PJ-k2m">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZN-tc-ljh">
+                                        <rect key="frame" x="83" y="272" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" image="Button_Red_Round_Tick.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPenThisPressed:" destination="2" eventType="touchUpInside" id="SUL-uy-FI9"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.69999999999999996" contentMode="scaleToFill" id="BuY-LD-7u5">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="Background_White_HorizontalTexture.png" id="8Nw-Ll-GYJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How do you feel now?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="YKD-d5-eBe">
+                                                <rect key="frame" x="80" y="3" width="161" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="shadowOffset" width="-1" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click the emoticon to say" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="LMT-PC-Vxf">
+                                                <rect key="frame" x="80" y="22" width="161" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="shadowOffset" width="-1" height="0.0"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="left" text="How do I feel now?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="q02-Ub-7IA">
+                                        <rect key="frame" x="75" y="127" width="170" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="shadowColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-1" height="0.0"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" image="OuterGreyRectangleBorder.png" id="Ikl-DU-MXL">
+                                        <rect key="frame" x="75" y="129" width="170" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lhM-41-c4P">
+                                        <rect key="frame" x="272" y="44" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="1.png">
+                                        <state key="normal" title="ok" image="Button_Red_ok.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -122,14 +120,18 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="R3F-t9-gKX"/>
+                                            <action selector="textFieldEditingDone:" destination="2" eventType="touchUpInside" id="UU6-o3-Iet"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="At2-mW-8Bv">
-                                        <rect key="frame" x="4" y="77" width="52" height="31"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1o4-Y6-MIk">
+                                        <rect key="frame" x="8" y="9" width="33" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jet-ab-a3i">
+                                        <rect key="frame" x="190" y="272" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="4.png">
+                                        <state key="normal" title="cancel" image="Button_Red_Round_X.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -137,14 +139,14 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="mZv-nR-2eH"/>
+                                            <action selector="buttonCancelPressed:" destination="2" eventType="touchUpInside" id="rw9-DM-e1n"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JOo-6M-Thq">
-                                        <rect key="frame" x="8" y="137" width="45" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bse-Tv-YUJ">
+                                        <rect key="frame" x="8" y="66" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="8.png">
+                                        <state key="normal" title="camera" image="Button_Camera_Red_Square.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -152,14 +154,23 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="nTd-ix-NCn"/>
+                                            <action selector="buttoCameraPressed:" destination="2" eventType="touchUpInside" id="ILo-Ku-2Nb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HTV-Kn-aVF">
-                                        <rect key="frame" x="0.0" y="207" width="54" height="36"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Slept well last night?" lineBreakMode="tailTruncation" minimumFontSize="10" id="Xwm-Ln-0vd">
+                                        <rect key="frame" x="55" y="216" width="140" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tEj-3Y-95j">
+                                        <rect key="frame" x="216" y="210" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="2.png">
+                                        <state key="normal" title="sleep checkbox" image="Button_CheckBox.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -167,14 +178,24 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="bmP-jd-W1R"/>
+                                            <action selector="sleepCheckBoxTapped:" destination="2" eventType="touchUpInside" id="OHP-xm-9Pq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xT4-u0-gDZ">
-                                        <rect key="frame" x="3" y="264" width="51" height="35"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How do I feel now?" minimumFontSize="17" clearButtonMode="whileEditing" id="SLq-DC-nAN">
+                                        <rect key="frame" x="49" y="50" width="218" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2" id="OyH-dj-n4v"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yU6-zl-Y7x">
+                                        <rect key="frame" x="256" y="125" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="20.png">
+                                        <state key="normal" title="Edit" image="Button_Red-Pencil.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -182,42 +203,34 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="zcI-wf-mji"/>
+                                            <action selector="buttonWritePressed:" destination="2" eventType="touchUpInside" id="UJe-7j-9lk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ezg-N1-Uqa">
-                                        <rect key="frame" x="-1" y="325" width="54" height="33"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2Jo-7H-NBK">
+                                        <rect key="frame" x="8" y="58" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="15.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="emotionExpressed:" destination="2" eventType="touchUpInside" id="VOG-Wk-Vrl"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gmx-DX-cqW">
-                                <rect key="frame" x="156" y="136" width="29" height="30.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title=">">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="textFieldEditingDone:" destination="2" eventType="touchUpInside" id="el4-N3-IXz"/>
+                                    <action selector="backgroundTapped:" destination="2" eventType="touchDown" id="rwW-Zp-ev9"/>
+                                    <outlet property="buttonCamera" destination="Bse-Tv-YUJ" id="JVm-pQ-FKc"/>
+                                    <outlet property="buttonCancel" destination="Jet-ab-a3i" id="DOl-Rl-bkL"/>
+                                    <outlet property="buttonPenThis" destination="DZN-tc-ljh" id="Hs7-g9-Xuv"/>
+                                    <outlet property="buttonPencil" destination="yU6-zl-Y7x" id="YcD-dm-H39"/>
+                                    <outlet property="buttonSaveText" destination="lhM-41-c4P" id="18P-Yz-Cou"/>
+                                    <outlet property="buttonSleep" destination="tEj-3Y-95j" id="5dl-kM-UxU"/>
+                                    <outlet property="emoticonLive" destination="1o4-Y6-MIk" id="Cxe-Lx-WMe"/>
+                                    <outlet property="labelSleep" destination="Xwm-Ln-0vd" id="EcE-OP-Q8O"/>
+                                    <outlet property="liveNoteImageSmall" destination="8Nw-Ll-GYJ" id="49c-t7-Fqa"/>
+                                    <outlet property="liveNoteViewBig" destination="Epx-PJ-k2m" id="sMn-oj-u9r"/>
+                                    <outlet property="liveNoteViewSmall" destination="BuY-LD-7u5" id="JFT-ru-kyy"/>
+                                    <outlet property="picLive" destination="2Jo-7H-NBK" id="ZUt-k1-WkO"/>
+                                    <outlet property="textBorderImage" destination="Ikl-DU-MXL" id="1jl-fL-Krn"/>
+                                    <outlet property="textFieldUserInput" destination="SLq-DC-nAN" id="Jbn-En-ggY"/>
+                                    <outlet property="textLive" destination="q02-Ub-7IA" id="gsY-sw-myb"/>
                                 </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
@@ -226,23 +239,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="7"/>
                     <connections>
-                        <outlet property="buttonEmotionAngry" destination="ezg-N1-Uqa" id="0YY-z9-ZfO"/>
-                        <outlet property="buttonEmotionDepressed" destination="xT4-u0-gDZ" id="Cje-fW-I0P"/>
-                        <outlet property="buttonEmotionHappy" destination="Ri2-d6-eRg" id="CQn-4a-12C"/>
-                        <outlet property="buttonEmotionOverjoyed" destination="At2-mW-8Bv" id="TMd-Ik-L9V"/>
-                        <outlet property="buttonEmotionRomantic" destination="JOo-6M-Thq" id="t5c-Zx-1Oh"/>
-                        <outlet property="buttonEmotionSad" destination="HTV-Kn-aVF" id="xBT-em-zYE"/>
-                        <outlet property="buttonPenThis" destination="4ch-1S-PfM" id="Ezh-lS-syT"/>
-                        <outlet property="buttonSaveText" destination="gmx-DX-cqW" id="qnO-W7-ww5"/>
-                        <outlet property="emoticonNoteLive" destination="OVF-Ad-pdv" id="GX9-Zl-WpO"/>
-                        <outlet property="emoticonsView" destination="zeS-8W-YbP" id="Ikc-fG-izG"/>
+                        <outlet property="noteEntryView" destination="aBh-7S-9eC" id="pqP-6s-54p"/>
                         <outlet property="table" destination="fkE-Nj-pra" id="Fwr-Tp-HUE"/>
-                        <outlet property="textFieldUserInput" destination="lIz-cs-d95" id="1X5-BI-9Ks"/>
-                        <outlet property="textNoteLive" destination="dyr-Rr-HEI" id="61f-zQ-Gzn"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
+            <point key="canvasLocation" x="573" y="-278"/>
         </scene>
         <scene sceneID="13">
             <objects>
@@ -252,27 +254,21 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backdrop_Grainer.png" id="P9w-DP-RVj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backdrop.png" id="P9w-DP-RVj">
                                 <rect key="frame" x="-1" y="44" width="321" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of com_SecondViewController — specified in the app delegate." textAlignment="center" id="23">
-                                <rect key="frame" x="20" y="181" width="280" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose the 'FROM' date for Mood History" lineBreakMode="tailTruncation" minimumFontSize="10" id="XtQ-HO-Pwo">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose the 'FROM' date for Mood History" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="XtQ-HO-Pwo">
                                 <rect key="frame" x="27" y="49" width="265" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <color key="shadowColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="-1" height="0.0"/>
                             </label>
-                            <datePicker opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="XgO-dR-CNG">
-                                <rect key="frame" x="-1" y="75" width="321" height="216"/>
+                            <datePicker opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="XgO-dR-CNG">
+                                <rect key="frame" x="0.0" y="75" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="357885821.13287801">
                                     <!--2012-05-05 04:43:41 +0000-->
@@ -299,15 +295,12 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
-                                <connections>
-                                    <action selector="dateBeingChosen:" destination="3" eventType="valueChanged" id="hgb-NV-4W0"/>
-                                </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jC6-XL-M3m">
-                                <rect key="frame" x="-1" y="291" width="320" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lOo-a7-ReF">
+                                <rect key="frame" x="168" y="195" width="144" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="I've chosen the 'FROM' date">
+                                <state key="normal" title="to date" image="Button_ToDate_Red.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -315,35 +308,34 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="fromDateChosen:" destination="3" eventType="touchUpInside" id="7Dp-1p-lR8"/>
-                                    <action selector="toDateChosen:" destination="3" eventType="touchUpInside" id="HMG-mV-jo3"/>
+                                    <action selector="toDateChosen:" destination="3" eventType="touchUpInside" id="M1C-wg-dpN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From" lineBreakMode="tailTruncation" minimumFontSize="10" id="3bo-rq-Lyl">
-                                <rect key="frame" x="20" y="336" width="42" height="21"/>
+                                <rect key="frame" x="20" y="259" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To" lineBreakMode="tailTruncation" minimumFontSize="10" id="Itz-lH-Hm3">
-                                <rect key="frame" x="20" y="370" width="42" height="21"/>
+                                <rect key="frame" x="20" y="297" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="b7T-No-yxl">
-                                <rect key="frame" x="98" y="336" width="202" height="21"/>
+                                <rect key="frame" x="98" y="259" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="hvr-bD-Wp3">
-                                <rect key="frame" x="98" y="370" width="202" height="21"/>
+                                <rect key="frame" x="98" y="297" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -351,15 +343,95 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="My Emotions' Journal" id="kwN-sL-fyz"/>
+                                    <navigationItem title="Self Aware" id="kwN-sL-fyz"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y0Y-eX-LQh">
+                                <rect key="frame" x="19" y="346" width="80" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="line chart" image="Button_LineChart_Red.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonChartLinePressed:" destination="3" eventType="touchUpInside" id="ZcJ-Bj-UKD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QXF-VA-eFZ">
+                                <rect key="frame" x="120" y="346" width="80" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="pie chart" image="Button_PieChart_Red.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonChartPiePressed:" destination="3" eventType="touchUpInside" id="9ei-BM-8G4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h0Q-h0-c86">
+                                <rect key="frame" x="11" y="195" width="144" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Button_FromDate_Red.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fromDateChosen:" destination="3" eventType="touchUpInside" id="vcS-aj-Y7l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2pT-Qh-Ojc">
+                                <rect key="frame" x="220" y="346" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Compare">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonChartPieComparePressed:" destination="3" eventType="touchUpInside" id="Cbd-Oo-RDr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4FF-Jz-4tr">
+                                <rect key="frame" x="79" y="346" width="149" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="Compare them now">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonChartCompareNowPressed:" destination="3" eventType="touchUpInside" id="pVV-dW-c0U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="second" id="6"/>
                     <connections>
-                        <outlet property="buttonDateChosen" destination="jC6-XL-M3m" id="jKr-k4-37x"/>
+                        <outlet property="buttonChartCompareNow" destination="4FF-Jz-4tr" id="REh-E2-JEX"/>
+                        <outlet property="buttonChartLine" destination="y0Y-eX-LQh" id="afr-c3-BmG"/>
+                        <outlet property="buttonChartPie" destination="QXF-VA-eFZ" id="G6H-bk-zQz"/>
+                        <outlet property="buttonChartPieCompare" destination="2pT-Qh-Ojc" id="LVA-y4-mmK"/>
+                        <outlet property="buttonFromDateChosen" destination="h0Q-h0-c86" id="Yyd-f8-NHA"/>
+                        <outlet property="buttonToDateChosen" destination="lOo-a7-ReF" id="9nm-8p-Dac"/>
                         <outlet property="datePicker" destination="XgO-dR-CNG" id="YmX-Dm-4fY"/>
                         <outlet property="labelFromDate" destination="b7T-No-yxl" id="yn0-fA-rAS"/>
                         <outlet property="labelInputPrompt" destination="XtQ-HO-Pwo" id="1Mv-7a-w9b"/>
@@ -367,7 +439,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="653" y="498"/>
+            <point key="canvasLocation" x="573" y="303"/>
         </scene>
         <scene sceneID="15">
             <objects>
@@ -382,24 +454,153 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="Mv9-nn-pEN" kind="relationship" relationship="viewControllers" id="3Tw-8z-lH2"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
+        <scene sceneID="KV0-kh-lHs">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4q2-h3-ojr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Mv9-nn-pEN" customClass="NotificationView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eC4-Vd-tpq">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backdrop.png" id="RgY-NW-po2">
+                                <rect key="frame" x="0.0" y="45" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="x1q-eT-mel" customClass="CustomNavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Self Aware" id="2o4-f7-Py6"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backdrop_Grainer.png" id="vCO-M4-Yof">
+                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BpI-i2-NNN">
+                                <rect key="frame" x="269" y="46" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleEdit:" destination="Mv9-nn-pEN" eventType="touchUpInside" id="VOc-fb-aLk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wli-VG-U79">
+                                <rect key="frame" x="215" y="46" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAddReminder:" destination="Mv9-nn-pEN" eventType="touchUpInside" id="FQD-c7-v3g"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a 'period' &amp; 'hour of the day'" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="sT8-7Q-CBl">
+                                <rect key="frame" x="0.0" y="44" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Existing Reminders" lineBreakMode="tailTruncation" minimumFontSize="10" id="oTg-eo-Vla">
+                                <rect key="frame" x="9" y="57" width="147" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O3u-ti-I5h">
+                                <rect key="frame" x="0.0" y="91" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Dv9-KH-hle">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mv9-nn-pEN" id="gyH-jR-rXQ"/>
+                                    <outlet property="delegate" destination="Mv9-nn-pEN" id="TAR-ca-517"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XKB-LM-Iaq">
+                                <rect key="frame" x="0.0" y="251" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add This Reminder">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addReminder:" destination="Mv9-nn-pEN" eventType="touchUpInside" id="Ym8-TX-cxe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Remind" id="Uyr-Df-eoM"/>
+                    <connections>
+                        <outlet property="buttonAddNotification" destination="Wli-VG-U79" id="MbE-rR-CaL"/>
+                        <outlet property="buttonAddThisReminder" destination="XKB-LM-Iaq" id="N9d-aO-ZL5"/>
+                        <outlet property="buttonDeleteNotification" destination="BpI-i2-NNN" id="VAH-h1-w1v"/>
+                        <outlet property="imageViewExistingReminders" destination="vCO-M4-Yof" id="Zzy-Iv-Ts6"/>
+                        <outlet property="labelAddReminder" destination="sT8-7Q-CBl" id="qeh-Lj-DxR"/>
+                        <outlet property="labelExistingReminders" destination="oTg-eo-Vla" id="fZh-Wy-xXk"/>
+                        <outlet property="table" destination="O3u-ti-I5h" id="ryN-4T-19d"/>
+                        <outlet property="view" destination="eC4-Vd-tpq" id="Nn3-0o-6El"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="573" y="885"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="1.png" width="18" height="18"/>
-        <image name="15.png" width="18" height="18"/>
-        <image name="2.png" width="18" height="18"/>
-        <image name="20.png" width="18" height="18"/>
-        <image name="4.png" width="18" height="18"/>
-        <image name="8.png" width="18" height="18"/>
-        <image name="Backdrop.png" width="640" height="480"/>
+        <image name="Backdrop.png" width="800" height="600"/>
         <image name="Backdrop_Grainer.png" width="800" height="600"/>
-        <image name="Button_History.png" width="44" height="50"/>
-        <image name="Button_TextPencil.png" width="44" height="44"/>
-        <image name="Note.png" width="551" height="399"/>
+        <image name="Background_White_HorizontalTexture.png" width="320" height="50"/>
+        <image name="Background_White_HorizontalWithClip_320-350.png" width="320" height="325"/>
+        <image name="Button_Camera_Red_Square.png" width="44" height="44"/>
+        <image name="Button_CheckBox.png" width="44" height="44"/>
+        <image name="Button_FromDate_Red.png" width="144" height="36"/>
+        <image name="Button_LineChart_Red.png" width="80" height="34"/>
+        <image name="Button_PieChart_Red.png" width="80" height="34"/>
+        <image name="Button_Red-Pencil.png" width="44" height="44"/>
+        <image name="Button_Red_Round_Tick.png" width="44" height="44"/>
+        <image name="Button_Red_Round_X.png" width="100" height="100"/>
+        <image name="Button_Red_ok.png" width="44" height="44"/>
+        <image name="Button_ToDate_Red.png" width="144" height="36"/>
+        <image name="OuterGreyRectangleBorder.png" width="184" height="33"/>
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
@@ -419,47 +620,94 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="NSMutableDictionary" superclassName="NSDictionary">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSMutableDictionary.h"/>
         </class>
+        <class className="NoteEntryView" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteEntryView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buttonCamera" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonPenThis" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonPencil" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonReset" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSaveText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSleep" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="emoticonAngry" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonDepressed" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonHappy" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonLive" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emoticonOverjoyed" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonRomantic" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonSad" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="emoticonsMenu" candidateClass="AwesomeMenu"/>
+                <relationship kind="outlet" name="labelSleep" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="liveNoteImageSmall" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="liveNoteViewBig" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="liveNoteViewSmall" candidateClass="UIView"/>
+                <relationship kind="outlet" name="picLive" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textBorderImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textFieldUserInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textLive" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NotificationView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationView.h"/>
+            <relationships>
+                <relationship kind="action" name="addReminder:"/>
+                <relationship kind="action" name="showAddReminder:"/>
+                <relationship kind="action" name="toggleEdit:"/>
+                <relationship kind="outlet" name="buttonAddNotification" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonAddThisReminder" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonDeleteNotification" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageViewExistingReminders" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelAddReminder" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelExistingReminders" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notifyIntervalPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="com_FirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/com_FirstViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backgroundTapped:"/>
-                <relationship kind="action" name="buttonPressed:"/>
-                <relationship kind="action" name="emotionExpressed:"/>
+                <relationship kind="action" name="buttoCameraPressed:"/>
+                <relationship kind="action" name="buttonCancelPressed:"/>
+                <relationship kind="action" name="buttonPenThisPressed:"/>
+                <relationship kind="action" name="buttonWritePressed:"/>
                 <relationship kind="action" name="history:"/>
-                <relationship kind="action" name="saveThisText:"/>
+                <relationship kind="action" name="sleepCheckBoxTapped:"/>
                 <relationship kind="action" name="textBeingEntered:"/>
                 <relationship kind="action" name="textFieldEditingDone:"/>
+                <relationship kind="outlet" name="animatedSubview" candidateClass="UIView"/>
                 <relationship kind="outlet" name="arrayInput" candidateClass="NSArray"/>
-                <relationship kind="outlet" name="awesomeMenu" candidateClass="AwesomeMenu"/>
+                <relationship kind="outlet" name="backdrop" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="buttonEmotionAngry" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonEmotionDepressed" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonEmotionHappy" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonEmotionOk" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonEmotionOverjoyed" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonEmotionRomantic" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonEmotionSad" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonPenThis" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonSaveText" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dictionary" candidateClass="NSMutableDictionary"/>
-                <relationship kind="outlet" name="emoticonNoteLive" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="emoticonsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="imageNoteLive" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="menuItem1" candidateClass="AwesomeMenuItem"/>
-                <relationship kind="outlet" name="menuItem2" candidateClass="AwesomeMenuItem"/>
-                <relationship kind="outlet" name="menuItem3" candidateClass="AwesomeMenuItem"/>
+                <relationship kind="outlet" name="noteEntryView" candidateClass="NoteEntryView"/>
+                <relationship kind="outlet" name="noteTextPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textFieldUserInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textNoteLive" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="com_SecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/com_SecondViewController.h"/>
             <relationships>
+                <relationship kind="action" name="buttonChartCompareNowPressed:"/>
+                <relationship kind="action" name="buttonChartLinePressed:"/>
+                <relationship kind="action" name="buttonChartPieComparePressed:"/>
+                <relationship kind="action" name="buttonChartPiePressed:"/>
                 <relationship kind="action" name="dateBeingChosen:"/>
                 <relationship kind="action" name="fromDateChosen:"/>
                 <relationship kind="action" name="toDateChosen:"/>
-                <relationship kind="outlet" name="buttonDateChosen" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonChartCompareNow" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonChartLine" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonChartPie" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonChartPieCompare" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonFromDateChosen" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonToDateChosen" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="labelFromDate" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelInputPrompt" candidateClass="UILabel"/>
