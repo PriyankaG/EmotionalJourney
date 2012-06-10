@@ -1,13 +1,13 @@
 //
-//  simpletable.h
+//  PictureView.h
 //  EmotionalJourney
 //
-//  Created by Administrator on 18/05/12.
+//  Created by Administrator on 28/05/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface simpletable : UITableViewController
+@interface PictureView : UIViewController
 
 @end

@@ -1,13 +1,13 @@
 //
-//  EmoticonsView.h
+//  NotificationView.h
 //  EmotionalJourney
 //
-//  Created by Administrator on 13/05/12.
+//  Created by Administrator on 08/06/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface EmoticonsView : UIView
+@interface NotificationView : UIViewController
 
 @end
